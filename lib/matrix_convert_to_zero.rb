@@ -3,33 +3,40 @@
 # If any number is found to be 0, the method updates all the numbers in the
 # corresponding row as well as the corresponding column to be 0.
 
-# Time complexity: O(m x n) + O(m + n)
-# Space complexity: O(m + n)
-require "set"
+# Time complexity: O(m x n)
+# Space complexity: O(1)
 require "awesome_print"
 
 def matrix_convert_to_zero(matrix)
-  rows = Set.new
-  cols = Set.new
+  column_zero = 1
+  rows = matrix.length
+  cols = matrix[0].length
 
-  for i in 0...matrix.length
-    for j in 0...matrix[0].length
+  for i in 0...rows
+    if matrix[i][0] == 0
+      column_zero = 0
+    end
+
+    for j in 1...cols
       if matrix[i][j] == 0
-        rows.add(i)
-        cols.add(j)
+        matrix[i][0] = matrix[0][j] = 0
       end
     end
   end
 
-  rows.each do |r|
-    for c in 0...matrix[0].length
-      matrix[r][c] = 0
+  i = rows - 1
+  while i >= 0
+    j = cols - 1
+    while j >= 1
+      if matrix[i][0] == 0 || matrix[0][j] == 0
+        matrix[i][j] = 0
+      end
+      j -= 1
     end
-  end
 
-  cols.each do |c|
-    for r in 0...matrix.length
-      matrix[r][c] = 0
+    if column_zero == 0
+      matrix[i][0] = 0
     end
+    i -= 1
   end
 end
