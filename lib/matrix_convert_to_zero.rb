@@ -4,8 +4,8 @@ require "pry"
 # If any number is found to be 0, the method updates all the numbers in the
 # corresponding row as well as the corresponding column to be 0.
 
-# Time complexity: O(1) because the first row and column of the matrix are used as buffer space. The only new variables created are i, j, first_row_zero, and first_column_zero
-# Space complexity: O (m + n) where m and n are the dimensions of the matrix.
+# Time complexity: O (m * n) where m and n are the dimensions of the array
+# Space complexity: O(1) because the first row and column of the matrix are used as buffer space. The only new variables created are i, j, first_row_zero, and first_column_zero
 def matrix_convert_to_zero(matrix)
   i = 0
   # Record locations of zeros
