@@ -3,7 +3,7 @@
 # If any number is found to be 0, the method updates all the numbers in the
 # corresponding row as well as the corresponding column to be 0.
 
-# Time complexity: O(n^2) where n is the number of items in the matrix
+# Time complexity: O(n^2) where n is the width of the matrix. Or O(w*h), where w is the width, and h is the height.
 # Space complexity: O(1) constant, regardless of the size of the matrix, a constant number of fixed sixed variables are needed.
 def matrix_convert_to_zero(matrix)
   rows = matrix.size
