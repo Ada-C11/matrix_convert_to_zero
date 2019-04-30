@@ -10,19 +10,20 @@ def matrix_convert_to_zero(matrix)
 
   rows = matrix.size
   columns = matrix[0].size
-  row_set = []
-  col_set = []
 
   rows.times do |row|
     columns.times do |column|
-      row_set << row if matrix[row][column].zero?
-      col_set << column if matrix[row][column].zero?
+      matrix[row][column] = 'x' if matrix[row][column] == 0
     end
   end
 
   rows.times do |row|
     columns.times do |column|
-      matrix[row][column] = 0 if row_set.include?(row) || col_set.include?(column)
+      next unless matrix[row][column] == 'x'
+
+      columns.times { |i| matrix[row][i] = 0 unless matrix[row][i] == 'x' }
+      rows.times { |i| matrix[i][column] = 0 unless matrix[i][column] == 'x' }
+      matrix[row][column] = 0
     end
   end
 end
