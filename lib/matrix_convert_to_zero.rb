@@ -1,29 +1,13 @@
-require "pry"
-
 # Updates the input matrix based on the following rules:
 # Assumption/ Given: All numbers in the matrix are 0s or 1s
 # If any number is found to be 0, the method updates all the numbers in the
 # corresponding row as well as the corresponding column to be 0.
 
-# Time complexity: ?
-# Space complexity: ?
-# def initialize_matrix(rows, columns)
-#   # create the matrix using the rows and columns
-#   matrix = Array.new(rows) { Array.new(columns) }
-
-#   # initialize the matrix
-#   rows.times do |row|
-#     columns.times do |column|
-#       matrix[row][column] = 1
-#     end
-#   end
-
-#   return matrix
-# end
-
-# matrix = initialize_matrix(3, 5)
-# matrix[1][3] = 0
-# matrix[2][4] = 0
+# Time complexity: O(n*m) where n is the length of the matrix and m is the length of the longest array within the matrix.
+# For both loops, the outer will run n times and the inner will run m times.
+# Space complexity: O(n+m) where n is the length of the matrix and m is the length of the longest array within the matrix.
+# The maximum number of values in the outer_indexes array will be equal to n and the maximum number of values in the 
+# inner_indexes array will be equal to m.
 
 def matrix_convert_to_zero(matrix)
   outer_indexes = []
@@ -59,5 +43,3 @@ def matrix_convert_to_zero(matrix)
 
   return matrix
 end
-
-# matrix_convert_to_zero(matrix)
