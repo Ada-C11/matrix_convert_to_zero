@@ -28,8 +28,8 @@ def matrix_convert_to_zero(matrix)
   end
 
   cols_to_0.length.times do |i|
-    matrix.each do |line|
-      line[cols_to_0[i]] = 0
+    matrix.length.times do |j|
+      matrix[j][cols_to_0[i]] = 0
     end
   end
 
