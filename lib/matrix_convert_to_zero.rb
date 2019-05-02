@@ -6,5 +6,31 @@
 # Time complexity: ?
 # Space complexity: ?
 def matrix_convert_to_zero(matrix)
-  raise NotImplementedError
+  new_matrix = []
+  rows_w_0 = {}
+  cols_w_0 = {}
+  
+  matrix.length.times do |x|
+    matrix[x].length.times do |y|
+      if matrix[x][y] == 0
+        rows_w_0[x] = true
+        cols_w_0[y] = true
+      end
+    end
+  end
+
+  matrix.length.times do |x|
+    matrix[x].length.times do |y|
+      if rows_w_0[x] == true || cols_w_0[y] == true
+        matrix[x][y]=0
+      else
+      end 
+    end
+  end
+  return matrix
 end
+
+
+
+
+  
