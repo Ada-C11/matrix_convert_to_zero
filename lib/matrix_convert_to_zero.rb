@@ -35,11 +35,3 @@ def matrix_convert_to_zero(matrix)
   end
   return matrix
 end
-
-# matrix = [[1, 1, 1], [1, 0, 1], [1, 1, 1], [1, 1, 0]]
-
-# p matrix_convert_to_zero(matrix)
-matrix = [[1, 1, 1, 0, 0], [1, 1, 1, 1, 1], [1, 0, 1, 1, 1], [1, 1, 1, 1, 1]]
-# matrix = [[0, 1, 1, 1, 1], [1, 1, 1, 1, 1], [1, 1, 1, 1, 1], [1, 1, 1, 1, 1]]
-
-p matrix_convert_to_zero(matrix)
