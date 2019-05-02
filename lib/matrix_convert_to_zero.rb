@@ -3,8 +3,8 @@
 # If any number is found to be 0, the method updates all the numbers in the
 # corresponding row as well as the corresponding column to be 0.
 
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O(n*m), where n is the number of rows and m is the number of columns in the matrix
+# Space complexity: O(n), where n is the number of elements in the matrix.
 def matrix_convert_to_zero(matrix)
   cols_with_zeros = []
   rows_with_zeros = []
@@ -32,15 +32,3 @@ def matrix_convert_to_zero(matrix)
 
   return matrix
 end
-
-# matrix = [
-#   [1, 0, 1, 0],
-#   [1, 1, 1, 1],
-#   [1, 0, 0, 1],
-# ]
-
-# puts "#{matrix_convert_to_zero(matrix)}"
-
-# 0 0 0 0
-# 1 0 0 0
-# 0 0 0 0
