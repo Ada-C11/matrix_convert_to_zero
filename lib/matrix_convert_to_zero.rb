@@ -1,10 +1,32 @@
-# Updates the input matrix based on the following rules:
-# Assumption/ Given: All numbers in the matrix are 0s or 1s
-# If any number is found to be 0, the method updates all the numbers in the
-# corresponding row as well as the corresponding column to be 0.
-
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O(n * m) where n is the number of rows and m is the number of columns.
+# Space complexity: O(n + m), where n represents the number of rows that contain a zero, and m
+# represents the number of columns that contain zero.
 def matrix_convert_to_zero(matrix)
-  raise NotImplementedError
+  rows = matrix.length
+  cols = matrix[0].length
+  row_zero = []
+  col_zero = []
+
+  rows.times do |row|
+    cols.times do |col|
+      if matrix[row][col] == 0
+        row_zero << row
+        col_zero << col
+      end
+    end
+  end
+
+  row_zero.uniq.each do |row|
+    cols.times do |col|
+      matrix[row][col] = 0
+    end
+  end
+
+  col_zero.uniq.each do |col|
+    rows.times do |row|
+      matrix[row][col] = 0
+    end
+  end
+
+  return matrix
 end
