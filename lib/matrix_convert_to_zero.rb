@@ -25,8 +25,8 @@ def matrix_convert_to_zero(matrix)
   end
 
   rows_with_zeros.each do |row|
-    matrix.first.each do |col|
-      matrix[row][col] = 0
+    matrix.first.length.times do |i|
+      matrix[row][i] = 0
     end
   end
 
