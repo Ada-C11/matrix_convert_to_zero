@@ -4,7 +4,7 @@
 # corresponding row as well as the corresponding column to be 0.
 
 # Time complexity: O(n^2)
-# Space complexity: O(n)
+# Space complexity: If a matrix is rows*columns large, than space complexity will be O(rows) or O(columns), depending on which is larger.
 def matrix_convert_to_zero(matrix)
   rows = matrix.length
   columns = matrix[0].length
