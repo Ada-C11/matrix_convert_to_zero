@@ -1,11 +1,11 @@
-require 'minitest/autorun'
-require 'minitest/reporters'
-require_relative '../lib/matrix_convert_to_zero'
+require "minitest/autorun"
+require "minitest/reporters"
+require_relative "../lib/matrix_convert_to_zero"
 
 # helper method for creating and initializing a matrix with all 1s
 def initialize_matrix(rows, columns)
   # create the matrix using the rows and columns
-  matrix = Array.new(rows){Array.new(columns)}
+  matrix = Array.new(rows) { Array.new(columns) }
 
   # initialize the matrix
   rows.times do |row|
@@ -129,6 +129,7 @@ describe "matrix convert to zero" do
       matrix[0][3] = 0 # row 0, column 1
       matrix[0][4] = 0 # row 1, column 1
       matrix[2][1] = 0 # row 2, column 1
+      p matrix
       rows_array = [0, 2]
       columns_array = [1, 3, 4]
 
