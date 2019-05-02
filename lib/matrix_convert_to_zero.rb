@@ -3,8 +3,8 @@
 # If any number is found to be 0, the method updates all the numbers in the
 # corresponding row as well as the corresponding column to be 0.
 
-# Time complexity: O(n*m), where n is the number of rows and m is the number of columns
-# Space complexity: O(n + m), where n is the number of rows in the matrix and m is the number of columns in the matrix
+# Time complexity: O(n*m) + O (n^2*m^2), where n is the number of rows and m is the number of columns
+# Space complexity: O(n +m)
 def matrix_convert_to_zero(matrix)
   return nil if matrix.empty?
 
