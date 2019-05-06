@@ -1,11 +1,12 @@
 require 'minitest/autorun'
 require 'minitest/reporters'
 require_relative '../lib/matrix_convert_to_zero'
+require 'pry'
 
 # helper method for creating and initializing a matrix with all 1s
 def initialize_matrix(rows, columns)
   # create the matrix using the rows and columns
-  matrix = Array.new(rows){Array.new(columns)}
+  matrix = Array.new(rows) { Array.new(columns) }
 
   # initialize the matrix
   rows.times do |row|
@@ -14,7 +15,7 @@ def initialize_matrix(rows, columns)
     end
   end
 
-  return matrix
+  matrix
 end
 
 # helper method for verifying updated matrix
@@ -25,7 +26,7 @@ def verify_matrix(matrix, rows_array, columns_array)
 
   rows.times do |row|
     columns.times do |column|
-      if (rows_array.include?(row) || columns_array.include?(column))
+      if rows_array.include?(row) || columns_array.include?(column)
         matrix[row][column].must_equal 0
       else
         matrix[row][column].must_equal 1
@@ -34,13 +35,14 @@ def verify_matrix(matrix, rows_array, columns_array)
   end
 end
 
-describe "matrix convert to zero" do
-  describe "basic tests" do
-    it "rows 1 & 2, columns 3 & 4 are 0" do
+describe 'matrix convert to zero' do
+  describe 'basic tests' do
+    it 'rows 1 & 2, columns 3 & 4 are 0' do
       # setup
       rows = 3
       columns = 5
       matrix = initialize_matrix(rows, columns)
+   
       matrix[1][3] = 0 # row 1, column 3
       matrix[2][4] = 0 # row 2, column 4
       rows_array = [1, 2]
@@ -53,7 +55,7 @@ describe "matrix convert to zero" do
       verify_matrix(matrix, rows_array, columns_array)
     end
 
-    it "rows 0, 1, 2, 3, 4, column 1 are 0" do
+    it 'rows 0, 1, 2, 3, 4, column 1 are 0' do
       # setup
       rows = 5
       columns = 3
@@ -73,8 +75,8 @@ describe "matrix convert to zero" do
       verify_matrix(matrix, rows_array, columns_array)
     end
 
-    it "only first cell is zero" do
-      #setup
+    it 'only first cell is zero' do
+      # setup
       rows = 3
       columns = 6
       matrix = initialize_matrix(rows, columns)
@@ -89,8 +91,8 @@ describe "matrix convert to zero" do
       verify_matrix(matrix, rows_array, columns_array)
     end
 
-    it "only middle cell is zero" do
-      #setup
+    it 'only middle cell is zero' do
+      # setup
       rows = 5
       columns = 7
       matrix = initialize_matrix(rows, columns)
@@ -105,8 +107,8 @@ describe "matrix convert to zero" do
       verify_matrix(matrix, rows_array, columns_array)
     end
 
-    it "only the last cell is zero" do
-      #setup
+    it 'only the last cell is zero' do
+      # setup
       rows = 8
       columns = 7
       matrix = initialize_matrix(rows, columns)
@@ -121,7 +123,7 @@ describe "matrix convert to zero" do
       verify_matrix(matrix, rows_array, columns_array)
     end
 
-    it "not all rows, not all columns" do
+    it 'not all rows, not all columns' do
       # setup
       rows = 4
       columns = 5
@@ -140,8 +142,8 @@ describe "matrix convert to zero" do
     end
   end
 
-  describe "edge case" do
-    it "no 0s" do
+  describe 'edge case' do
+    it 'no 0s' do
       # setup
       rows = 4
       columns = 4

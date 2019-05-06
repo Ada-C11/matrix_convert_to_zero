@@ -3,8 +3,27 @@
 # If any number is found to be 0, the method updates all the numbers in the
 # corresponding row as well as the corresponding column to be 0.
 
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O(n*m) + O (n^2*m^2), where n is the number of rows and m is the number of columns
+# Space complexity: O(n +m)
 def matrix_convert_to_zero(matrix)
-  raise NotImplementedError
+  return nil if matrix.empty?
+
+  rows = matrix.size
+  columns = matrix[0].size
+
+  rows.times do |row|
+    columns.times do |column|
+      matrix[row][column] = 'x' if matrix[row][column] == 0
+    end
+  end
+
+  rows.times do |row|
+    columns.times do |column|
+      next unless matrix[row][column] == 'x'
+
+      columns.times { |i| matrix[row][i] = 0 unless matrix[row][i] == 'x' }
+      rows.times { |i| matrix[i][column] = 0 unless matrix[i][column] == 'x' }
+      matrix[row][column] = 0
+    end
+  end
 end
